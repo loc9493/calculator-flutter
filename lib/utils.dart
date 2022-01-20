@@ -1,6 +1,10 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:calculator/main.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class Utils {
   static const backgrounColorStart = Color(0xffb8b8b8);
@@ -8,6 +12,51 @@ class Utils {
   static const offsetValue = 5.0;
   static const blurRadius = 15.0;
   static const spreadRadius = 3.0;
+
+  static const bannerAdsID = "ca-app-pub-1436979433677675/4834834219";
+  static const bannerAdsID1 = "ca-app-pub-1436979433677675/3797084715";
+  static const interestialAdsID = "ca-app-pub-3940256099942544/1033173712";
+
+  static String bannerAdpubID() {
+    //Develop pub id
+    if (kDebugMode) {
+      return Platform.isAndroid
+          ? 'ca-app-pub-3940256099942544/6300978111'
+          : 'ca-app-pub-3940256099942544/2934735716';
+    }
+    //Production pub id
+    return Platform.isAndroid
+        ? bannerAdsID1
+        : 'ca-app-pub-1436979433677675/6119992154';
+  }
+
+  static String bannerAdpubID1() {
+    //Develop pub id
+    if (kDebugMode) {
+      return Platform.isAndroid
+          ? 'ca-app-pub-3940256099942544/6300978111'
+          : 'ca-app-pub-3940256099942544/2934735716';
+    }
+    //Production pub id
+    return Platform.isAndroid
+        ? bannerAdsID
+        : 'ca-app-pub-1436979433677675/6119992154';
+  }
+
+  static BannerAd homeBanner = BannerAd(
+    adUnitId: bannerAdpubID1(),
+    size: AdSize.banner,
+    request: AdRequest(),
+    listener: BannerAdListener(),
+  );
+
+  static BannerAd detailBanner = BannerAd(
+    adUnitId: bannerAdpubID(),
+    size: AdSize.banner,
+    request: AdRequest(),
+    listener: BannerAdListener(),
+  );
+
   static List<ButtonType> firstRow = [
     ButtonType.Btn0,
     ButtonType.BtnDot,
@@ -129,6 +178,50 @@ class Utils {
         return '+/-';
       default:
         return '0';
+    }
+  }
+
+  static Color buttonColor(ButtonType type) {
+    switch (type) {
+      case ButtonType.BtnDivide:
+        return Colors.orangeAccent;
+      case ButtonType.BtnResult:
+        return Colors.orangeAccent;
+      case ButtonType.BtnPercent:
+        return Colors.white;
+      case ButtonType.BtnAdd:
+        return Colors.orangeAccent;
+      case ButtonType.BtnBackspace:
+        return Colors.white;
+      case ButtonType.BtnClear:
+        return Colors.redAccent;
+      case ButtonType.BtnCompound:
+        return Colors.orangeAccent;
+      case ButtonType.BtnMinus:
+        return Colors.orangeAccent;
+      case ButtonType.BtnNegative:
+        return Colors.white;
+      default:
+        return Colors.white;
+    }
+  }
+
+  static Color textColor(ButtonType type) {
+    switch (type) {
+      case ButtonType.BtnDivide:
+        return Colors.white;
+      case ButtonType.BtnResult:
+        return Colors.white;
+      case ButtonType.BtnAdd:
+        return Colors.white;
+      case ButtonType.BtnClear:
+        return Colors.white;
+      case ButtonType.BtnCompound:
+        return Colors.white;
+      case ButtonType.BtnMinus:
+        return Colors.white;
+      default:
+        return Colors.black;
     }
   }
 }

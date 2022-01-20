@@ -1,9 +1,15 @@
 import 'package:calculator/utils.dart';
 import 'package:calculator/view_model/result_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  MobileAds.instance.initialize();
+  Utils.homeBanner.load();
+  Utils.detailBanner.load();
   runApp(const MyApp());
 }
 
@@ -74,12 +80,24 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Container(
+                  height: 50,
+                  child: AdWidget(
+                    ad: Utils.detailBanner,
+                  ),
+                ),
                 const Expanded(child: DisplayContainer()),
                 ButtonRow(rows: Utils.fifthRow),
                 ButtonRow(rows: Utils.fourthRow),
                 ButtonRow(rows: Utils.thirdRow),
                 ButtonRow(rows: Utils.secondRow),
                 ButtonRow(rows: Utils.firstRow),
+                Container(
+                  height: 50,
+                  child: AdWidget(
+                    ad: Utils.homeBanner,
+                  ),
+                )
               ],
             ),
           )),
@@ -106,6 +124,7 @@ class ButtonRow extends StatelessWidget {
 
 class NeuContainer extends StatelessWidget {
   const NeuContainer({Key? key, required this.button}) : super(key: key);
+
   final ButtonType button;
   @override
   Widget build(BuildContext context) {
@@ -131,13 +150,11 @@ class NeuContainer extends StatelessWidget {
                 spreadRadius: Utils.spreadRadius,
               )
             ],
-            color: Colors.white),
+            color: Utils.buttonColor(button)),
         child: Center(
           child: Text(
             Utils.buttonTitle(button),
-            style: TextStyle(
-              fontSize: 40,
-            ),
+            style: TextStyle(fontSize: 40, color: Utils.textColor(button)),
           ),
         ),
       ),

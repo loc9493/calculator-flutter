@@ -4,6 +4,9 @@
         android:label="calculator"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1436979433677675~3713324237"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

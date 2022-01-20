@@ -29,6 +29,12 @@ class ResultViewModel extends ChangeNotifier {
       case ButtonType.BtnNegative:
         result = (double.parse(result) * -1).toString();
         break;
+      case ButtonType.BtnBackspace:
+        if (result.length == 0) {
+          break;
+        }
+        result = result.substring(0, result.length - 1);
+        break;
       case ButtonType.BtnMinus:
       case ButtonType.BtnAdd:
       case ButtonType.BtnCompound:
