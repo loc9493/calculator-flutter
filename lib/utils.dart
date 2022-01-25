@@ -12,10 +12,14 @@ class Utils {
   static const offsetValue = 5.0;
   static const blurRadius = 15.0;
   static const spreadRadius = 3.0;
-
+  static const shouldDisplayAds = true;
   static const bannerAdsID = "ca-app-pub-1436979433677675/4834834219";
   static const bannerAdsID1 = "ca-app-pub-1436979433677675/3797084715";
   static const interestialAdsID = "ca-app-pub-3940256099942544/1033173712";
+
+  static double adsBannerHeight() {
+    return shouldDisplayAds ? 50 : 0;
+  }
 
   static String bannerAdpubID() {
     //Develop pub id
@@ -27,7 +31,7 @@ class Utils {
     //Production pub id
     return Platform.isAndroid
         ? bannerAdsID1
-        : 'ca-app-pub-1436979433677675/6119992154';
+        : 'ca-app-pub-1436979433677675/5764147781';
   }
 
   static String bannerAdpubID1() {
@@ -40,7 +44,7 @@ class Utils {
     //Production pub id
     return Platform.isAndroid
         ? bannerAdsID
-        : 'ca-app-pub-1436979433677675/6119992154';
+        : 'ca-app-pub-1436979433677675/7737712619';
   }
 
   static BannerAd homeBanner = BannerAd(

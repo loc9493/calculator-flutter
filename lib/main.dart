@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Minimalist Calculator',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -81,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height: 50,
+                  height: Utils.adsBannerHeight(),
                   child: AdWidget(
                     ad: Utils.detailBanner,
                   ),
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ButtonRow(rows: Utils.secondRow),
                 ButtonRow(rows: Utils.firstRow),
                 Container(
-                  height: 50,
+                  height: Utils.adsBannerHeight(),
                   child: AdWidget(
                     ad: Utils.homeBanner,
                   ),
