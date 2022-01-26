@@ -35,6 +35,12 @@ class ResultViewModel extends ChangeNotifier {
         }
         result = result.substring(0, result.length - 1);
         break;
+      case ButtonType.BtnDot:
+        if (result.contains(".")) {
+          break;
+        }
+        result = result + Utils.buttonValue(btnType);
+        break;
       case ButtonType.BtnMinus:
       case ButtonType.BtnAdd:
       case ButtonType.BtnCompound:
