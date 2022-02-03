@@ -188,21 +188,21 @@ class Utils {
   static Color buttonColor(ButtonType type) {
     switch (type) {
       case ButtonType.BtnDivide:
-        return Colors.orangeAccent;
+        return Colors.white;
       case ButtonType.BtnResult:
-        return Colors.orangeAccent;
+        return Colors.white;
       case ButtonType.BtnPercent:
         return Colors.white;
       case ButtonType.BtnAdd:
-        return Colors.orangeAccent;
+        return Colors.white;
       case ButtonType.BtnBackspace:
         return Colors.white;
       case ButtonType.BtnClear:
-        return Colors.redAccent;
+        return Colors.white;
       case ButtonType.BtnCompound:
-        return Colors.orangeAccent;
+        return Colors.white;
       case ButtonType.BtnMinus:
-        return Colors.orangeAccent;
+        return Colors.white;
       case ButtonType.BtnNegative:
         return Colors.white;
       default:
@@ -213,17 +213,17 @@ class Utils {
   static Color textColor(ButtonType type) {
     switch (type) {
       case ButtonType.BtnDivide:
-        return Colors.white;
+        return Colors.black;
       case ButtonType.BtnResult:
-        return Colors.white;
+        return Colors.black;
       case ButtonType.BtnAdd:
-        return Colors.white;
+        return Colors.black;
       case ButtonType.BtnClear:
-        return Colors.white;
+        return Colors.black;
       case ButtonType.BtnCompound:
-        return Colors.white;
+        return Colors.black;
       case ButtonType.BtnMinus:
-        return Colors.white;
+        return Colors.black;
       default:
         return Colors.black;
     }
